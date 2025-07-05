@@ -1,17 +1,30 @@
-import "./MainPage.scss"
-import React from 'react'
+import PokemonTile from "../Components/PokemonTile";
+import "./MainPage.scss";
+import React, { useEffect } from "react";
+import { useState } from "react";
 
 type MainPageProps = {
-  pokeData: String
-}
+  pokeData: Array<Pokemon>;
+};
 
-const MainPage = ({pokeData}: MainPageProps) => {
+type Pokemon = {
+  name: String;
+  url: String;
+};
+
+const MainPage = ({ pokeData }: MainPageProps) => {
+  console.log(pokeData);
+
   return (
     <div className="mainPageContainer">
-        <h1 className="headerContainer">MainPageHeader</h1>
-        <p className="contentContainer">{pokeData}</p>
+      <h1 className="headerContainer">MainPageHeader</h1>
+      <li>
+        {pokeData.map((pokemon: Pokemon) => {
+          return <PokemonTile individualPokeData={pokemon} />;
+        })}
+      </li>
     </div>
-  )
-}
+  );
+};
 
-export default MainPage
+export default MainPage;

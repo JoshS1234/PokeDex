@@ -1,35 +1,25 @@
-import { useEffect, useState } from 'react'
-import './App.css'
-import MainPage from './Containers/MainPage'
-
+import { useEffect, useState } from "react";
+import "./App.css";
+import MainPage from "./Containers/MainPage";
+import axios from "axios";
 
 function App() {
-  const [pokeData, setPokeData] = useState<String>("")
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
+  const [pokeData, setPokeData] = useState([0]);
 
-  const getPokeData = async () => {
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1')
-    const data = await response.json()
-    return data
-  }
-  
   useEffect(() => {
-    getPokeData().then((pokeData) => {
-      console.log('Fetched Pokémon data:', pokeData)
-      console.log('Fetched Pokémon data:', pokeData.results[0].name)
-      setPokeData(pokeData.results[0].name)      
-      setIsLoading(false)
-    })
-    .catch((error) => {
-      console.error('Error fetching Pokémon data:', error)
-    })
-  }, [])
+    setIsLoading(true);
+    axios
+      .get("https://pokeapi.co/api/v2/pokemon?limit=3")
+      .then((data) => {
+        setPokeData(data.data.results);
+      })
+      .then(() => {
+        setIsLoading(false);
+      });
+  }, []);
 
-
-
-  return (
-    isLoading ? <h1>Loading...</h1> : <MainPage pokeData={pokeData}/>
-  )
+  return isLoading ? <p>Loading...</p> : <MainPage pokeData={pokeData} />;
 }
 
-export default App
+export default App;
