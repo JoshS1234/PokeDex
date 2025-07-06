@@ -2,7 +2,7 @@
   "name": "pokedex",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://JoshS1234.github.io/PokeDex",
+  "homepage": "//JoshS1234.github.io/PokeDex",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
