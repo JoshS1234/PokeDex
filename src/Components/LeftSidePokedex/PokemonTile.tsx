@@ -42,7 +42,9 @@ function PokemonTile({ individualPokeData, incrementPokemonId }: Props) {
         <PokemonTileImage individualPokemonObject={individualPokemonObject} />
       </div>
       <div className="bottomLeftContentContainer">
-        <CentreLeftButtonContainer />
+        <CentreLeftButtonContainer
+          individualPokemonObject={individualPokemonObject}
+        />
         <div className="descriptionContentContainer">
           <DescriptionBox additionalPokemonData={additionalPokemonData} />
           <NavigationButtonsContainer incrementPokemonId={incrementPokemonId} />

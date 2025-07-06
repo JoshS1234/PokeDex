@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./CentreLeftButtonContainer.scss";
+import type { criesObject, fullPokemonData } from "../../Types";
 
-function CentreLeftButtonContainer() {
+type centreLeftButtonContainerProps = {
+  individualPokemonObject: fullPokemonData;
+};
+
+function CentreLeftButtonContainer({
+  individualPokemonObject,
+}: centreLeftButtonContainerProps) {
+  useEffect(() => {}, [individualPokemonObject]);
+
   return (
     <div className="centreLeftButtonContainer">
-      <p className="centreLeftButton">start</p>
-      <p className="centreLeftButton">select</p>
+      <button className="centreLeftButton">Random</button>
     </div>
   );
 }

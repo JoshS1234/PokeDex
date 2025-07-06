@@ -25,22 +25,22 @@ const Speakers = () => {
   };
   return (
     <div className="speakerContainer">
-      <p
+      <button
         className="speaker"
         onClick={() => {
           togglePlayMusicFile(pallet, isPalletPlaying, setIsPalletPlaying);
         }}
       >
         ♫ Pallet town ♫
-      </p>
-      <p
+      </button>
+      <button
         className="speaker"
         onClick={() => {
           togglePlayMusicFile(gymLeader, isGymPlaying, setIsGymPlaying);
         }}
       >
         ♫ Gym battle ♫
-      </p>
+      </button>
     </div>
   );
 };
