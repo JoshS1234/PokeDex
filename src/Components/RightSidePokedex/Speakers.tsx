@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import "./Speakers.scss";
 
 const Speakers = () => {
-  const [pallet, setPallet] = useState<HTMLAudioElement>(
+  const [pallet] = useState<HTMLAudioElement>(
     new Audio(`src/assets/music/PalletTown.mp3`)
   );
-  const [gymLeader, setGymLeader] = useState<HTMLAudioElement>(
+  const [gymLeader] = useState<HTMLAudioElement>(
     new Audio(`src/assets/music/GymLeader.mp3`)
   );
   const [isPalletPlaying, setIsPalletPlaying] = useState(false);

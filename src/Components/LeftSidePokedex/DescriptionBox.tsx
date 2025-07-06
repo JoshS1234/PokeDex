@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import type { additionalPokemonData, descriptionObject } from "../../Types";
 import "./DescriptionBox.scss";
 import {
@@ -7,7 +7,7 @@ import {
 } from "../../utils/generalUtils";
 
 type pokemonTileDescriptionProps = {
-  additionalPokemonData: additionalPokemonData;
+  additionalPokemonData: additionalPokemonData | undefined;
 };
 
 function DescriptionBox({

@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "./CentreLeftButtonContainer.scss";
 import type { criesObject, fullPokemonData } from "../../Types";
 
 type centreLeftButtonContainerProps = {
-  individualPokemonObject: fullPokemonData;
+  individualPokemonObject: fullPokemonData | undefined;
 };
 
 function CentreLeftButtonContainer({
@@ -26,7 +26,7 @@ function CentreLeftButtonContainer({
   return (
     <div className="centreLeftButtonContainer">
       <button
-        className="imageButton"
+        className="centreLeftButton"
         onClick={() => {
           playAudio(individualPokemonObject?.cries, true);
         }}
@@ -34,7 +34,7 @@ function CentreLeftButtonContainer({
         Original cry
       </button>
       <button
-        className="imageButton"
+        className="centreLeftButton"
         onClick={() => {
           playAudio(individualPokemonObject?.cries, false);
         }}

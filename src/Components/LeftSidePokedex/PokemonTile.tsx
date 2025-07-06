@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./PokemonTile.scss";
 import axios from "axios";
-import { arrayToString, firstLetterCap } from "../../utils/generalUtils";
-import type { fullPokemonData, PokemonWithURL, criesObject } from "../../Types";
+import type { fullPokemonData, PokemonWithURL } from "../../Types";
 import PokemonTileImage from "./PokemonTileImage";
 import DescriptionBox from "./DescriptionBox";
 import NavigationButtonsContainer from "./NavigationButtonsContainer";

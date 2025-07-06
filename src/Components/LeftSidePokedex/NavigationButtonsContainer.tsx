@@ -1,4 +1,3 @@
-import React from "react";
 import "./NavigationButtonsContainer.scss";
 
 type Props = {

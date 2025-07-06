@@ -1,6 +1,6 @@
 import PokemonTile from "../Components/LeftSidePokedex/PokemonTile";
 import "./MainPage.scss";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import type { PokemonWithURL } from "../Types";
 import NumberInterface from "../Components/RightSidePokedex/NumberInterface";

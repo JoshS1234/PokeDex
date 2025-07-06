@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "./PokemonTileImage.scss";
-import type { criesObject, fullPokemonData } from "../../Types";
+import type { fullPokemonData } from "../../Types";
 import { useState } from "react";
 
 type pokemonTileImageProps = {
-  individualPokemonObject: fullPokemonData;
+  individualPokemonObject: fullPokemonData | undefined;
 };
 
 function PokemonTileImage({ individualPokemonObject }: pokemonTileImageProps) {
@@ -47,21 +47,6 @@ function PokemonTileImage({ individualPokemonObject }: pokemonTileImageProps) {
     setIsFront(!isFront);
     setImage(isShiny, isFront);
   };
-
-  function playAudio(cries: criesObject | undefined, isLegacy: boolean) {
-    console.log(cries);
-    console.log(individualPokemonObject);
-
-    if (cries) {
-      let url;
-      if (isLegacy) {
-        url = cries.legacy;
-      } else {
-        url = cries.latest;
-      }
-      new Audio(url).play();
-    }
-  }
 
   useEffect(() => {
     setImage(isShiny, isFront);
