@@ -4,6 +4,8 @@ import axios from "axios";
 import { arrayToString, firstLetterCap } from "../../utils/generalUtils";
 import type { fullPokemonData, PokemonWithURL, criesObject } from "../../Types";
 import PokemonTileImage from "./PokemonTileImage";
+import DescriptionBox from "./DescriptionBox";
+import NavigationButtonsContainer from "./NavigationButtonsContainer";
 
 type Props = {
   individualPokeData: PokemonWithURL;
@@ -13,11 +15,18 @@ type Props = {
 function PokemonTile({ individualPokeData, incrementPokemonId }: Props) {
   const [individualPokemonObject, setIndividualPokemonObject] =
     useState<fullPokemonData>();
+  const [additionalPokemonData, setAdditionalPokemonData] = useState();
 
   const getPokemonData = async (individualPokeData: PokemonWithURL) => {
-    axios.get(individualPokeData.url.toString()).then((data) => {
-      setIndividualPokemonObject(data.data);
-    });
+    axios
+      .get(individualPokeData.url.toString())
+      .then((data) => {
+        setIndividualPokemonObject(data.data);
+        return axios.get(data.data.species.url);
+      })
+      .then((data) => {
+        setAdditionalPokemonData(data.data);
+      });
   };
 
   useEffect(() => {
@@ -28,18 +37,15 @@ function PokemonTile({ individualPokeData, incrementPokemonId }: Props) {
 
   return (
     <div className="fullTile">
-      <PokemonTileImage individualPokemonObject={individualPokemonObject} />
-      <div className="selectionArrowContainer">
-        <img
-          src="src/assets/leftArrow.svg"
-          className="selectionArrow"
-          onClick={() => incrementPokemonId(-1)}
-        />
-        <img
-          src="src/assets/rightArrow.svg"
-          className="selectionArrow"
-          onClick={() => incrementPokemonId(1)}
-        />
+      <div className="pokemonImageContainer">
+        <PokemonTileImage individualPokemonObject={individualPokemonObject} />
+      </div>
+      <div className="bottomLeftContentContainer">
+        <div className="centreLeftContent">extra buttons</div>
+        <div className="descriptionContentContainer">
+          <DescriptionBox additionalPokemonData={additionalPokemonData} />
+          <NavigationButtonsContainer incrementPokemonId={incrementPokemonId} />
+        </div>
       </div>
     </div>
   );

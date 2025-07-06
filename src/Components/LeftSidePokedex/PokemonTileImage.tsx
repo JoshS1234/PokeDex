@@ -65,7 +65,7 @@ function PokemonTileImage({ individualPokemonObject }: pokemonTileImageProps) {
   }, [individualPokemonObject, isShiny, isFront]);
 
   return (
-    <div className="pokemonImageContainer">
+    <>
       <div className="pokemonImageButtonContainer">
         <h6
           className="imageButton"
@@ -103,7 +103,7 @@ function PokemonTileImage({ individualPokemonObject }: pokemonTileImageProps) {
           {isFront ? "Back view" : "Front view"}
         </h6>
       </div>
-    </div>
+    </>
   );
 }
 

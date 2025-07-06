@@ -26,14 +26,50 @@ export type fullPokemonData = {
   weight: number;
 };
 
-export type typeObjectWithSlot = {
-  slot: number;
-  type: typeObject;
+export type additionalPokemonData = {
+  base_happiness: Number;
+  capture_rate: Number;
+  color: nameURLObj;
+  egg_groups: Array<Object>;
+  evolution_chain: { url: string };
+  evolves_from_species: Object;
+  flavor_text_entries: Array<descriptionObject>;
+  form_descriptions: Array<Object>;
+  forms_switchable: boolean;
+  gender_rate: number;
+  genera: Array<Object>;
+  generation: nameURLObj;
+  growth_rate: nameURLObj;
+  habitat: nameURLObj;
+  has_gender_differences: boolean;
+  hatch_counter: number;
+  id: number;
+  is_baby: boolean;
+  is_legendary: boolean;
+  is_mythical: boolean;
+  name: string;
+  names: Array<Object>;
+  order: number;
+  pal_park_encounters: Array<Object>;
+  pokedex_numbers: Array<Object>;
+  shape: nameURLObj;
+  varieties: Array<Object>;
 };
 
-export type typeObject = {
+export type typeObjectWithSlot = {
+  slot: number;
+  type: nameURLObj;
+};
+
+export type nameURLObj = {
   name: string;
   url: string;
+};
+
+export type descriptionObject = {
+  flavor_text: string;
+  language: nameURLObj;
+  version: nameURLObj;
 };
 
 export type spritesObject = {

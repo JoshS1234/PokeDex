@@ -63,20 +63,4 @@
     height: 80%;
     width: 100%;
   }
-
-  .selectionArrowContainer {
-    width: 100%;
-    height: 20%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-
-    .selectionArrow {
-      height: 100%;
-
-      &:hover {
-        background-color: green;
-      }
-    }
-  }
 }
