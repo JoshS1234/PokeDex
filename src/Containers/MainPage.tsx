@@ -3,6 +3,8 @@ import "./MainPage.scss";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import type { PokemonWithURL } from "../Types";
+import NumberInterface from "../Components/RightSidePokedex/NumberInterface";
+import Speakers from "../Components/RightSidePokedex/Speakers";
 
 type MainPageProps = {
   pokeData: Array<PokemonWithURL>;
@@ -26,7 +28,7 @@ const MainPage = ({ pokeData }: MainPageProps) => {
             <h4 className="headerButtons headerButtons_small">blah</h4>
             <h4 className="headerButtons headerButtons_small">blah</h4>
           </div>
-          <div className="pokemonContentContainer">
+          <div className="pokemonContentContainer pokemonContentContainer_left">
             <PokemonTile
               individualPokeData={pokeData[currentIndex]}
               incrementPokemonId={incrementPokemonId}
@@ -36,7 +38,10 @@ const MainPage = ({ pokeData }: MainPageProps) => {
 
         <div className="pokedexSide pokedexSide_right">
           <div className="pokedexSideHeader pokedexSideHeader_right"></div>
-          blankContent
+          <div className="pokemonContentContainer pokemonContentContainer_right">
+            <NumberInterface setCurrentIndex={setcurrentIndex} />
+            <Speakers />
+          </div>
         </div>
       </div>
     </div>

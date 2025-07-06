@@ -49,6 +49,9 @@ function PokemonTileImage({ individualPokemonObject }: pokemonTileImageProps) {
   };
 
   function playAudio(cries: criesObject | undefined, isLegacy: boolean) {
+    console.log(cries);
+    console.log(individualPokemonObject);
+
     if (cries) {
       let url;
       if (isLegacy) {
@@ -65,45 +68,27 @@ function PokemonTileImage({ individualPokemonObject }: pokemonTileImageProps) {
   }, [individualPokemonObject, isShiny, isFront]);
 
   return (
-    <>
-      <div className="pokemonImageButtonContainer">
-        <h6
-          className="imageButton"
-          onClick={() => {
-            playAudio(individualPokemonObject?.cries, true);
-          }}
-        >
-          Original cry
-        </h6>
-        <h6
-          className="imageButton"
-          onClick={() => {
-            playAudio(individualPokemonObject?.cries, false);
-          }}
-        >
-          Modern Cry
-        </h6>
-      </div>
+    <div className="imageContainer">
       <img className="pokemonImage" src={pokemonImgSrc} />
       <div className="pokemonImageButtonContainer">
-        <h6
+        <button
           className="imageButton"
           onClick={() => {
             toggleIsShiny();
           }}
         >
           {isShiny ? "Non-shiny" : "Shiny"}
-        </h6>
-        <h6
+        </button>
+        <button
           className="imageButton"
           onClick={() => {
             toggleIsFront();
           }}
         >
           {isFront ? "Back view" : "Front view"}
-        </h6>
+        </button>
       </div>
-    </>
+    </div>
   );
 }
 
