@@ -5,24 +5,78 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: red;
-}
-
-.headerContainer {
-  width: 100%;
-  height: 20%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: blue;
+  background-color: black;
 }
 
 .contentContainer {
-  width: 100%;
-  height: 80%;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  justify-content: space-around;
+}
+
+.pokedexSide {
+  width: 50%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: green;
+  justify-content: baseline;
+
+  .pokedexSideHeader {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    &_right {
+      background-color: black;
+    }
+
+    .headerButtons {
+      background-color: green;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      &_big {
+        width: 20%;
+        height: 80%;
+      }
+
+      &_small {
+        width: 10%;
+        height: 40%;
+      }
+    }
+  }
+
+  .pokemonContentContainer {
+    height: 80%;
+    width: 100%;
+  }
+
+  .selectionArrowContainer {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    .selectionArrow {
+      height: 100%;
+
+      &:hover {
+        background-color: green;
+      }
+    }
+  }
 }
