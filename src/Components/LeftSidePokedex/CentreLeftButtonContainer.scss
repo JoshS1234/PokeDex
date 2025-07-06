@@ -1,0 +1,25 @@
+.centreLeftButtonContainer {
+  background-color: lighten($color: red, $amount: 10%);
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 20%;
+  justify-content: space-around;
+  align-items: centre;
+  padding: 0px;
+
+  .centreLeftButton {
+    background-color: silver;
+    padding: 2px 5px;
+    border-radius: 3px;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    &:hover {
+      background-color: darken($color: silver, $amount: 5%);
+    }
+  }
+}

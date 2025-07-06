@@ -6,6 +6,7 @@ import type { fullPokemonData, PokemonWithURL, criesObject } from "../../Types";
 import PokemonTileImage from "./PokemonTileImage";
 import DescriptionBox from "./DescriptionBox";
 import NavigationButtonsContainer from "./NavigationButtonsContainer";
+import CentreLeftButtonContainer from "./CentreLeftButtonContainer";
 
 type Props = {
   individualPokeData: PokemonWithURL;
@@ -41,7 +42,7 @@ function PokemonTile({ individualPokeData, incrementPokemonId }: Props) {
         <PokemonTileImage individualPokemonObject={individualPokemonObject} />
       </div>
       <div className="bottomLeftContentContainer">
-        <div className="centreLeftContent">extra buttons</div>
+        <CentreLeftButtonContainer />
         <div className="descriptionContentContainer">
           <DescriptionBox additionalPokemonData={additionalPokemonData} />
           <NavigationButtonsContainer incrementPokemonId={incrementPokemonId} />
