@@ -7,7 +7,7 @@ type Props = {
 
 function NumberInterface({ setCurrentIndex }: Props) {
   return (
-    <div>
+    <div className="numberInterfaceContainer">
       <div>Screen</div>
       <div>inputs</div>
       <div>Delete</div>
