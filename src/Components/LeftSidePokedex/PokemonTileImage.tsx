@@ -69,6 +69,7 @@ function PokemonTileImage({ individualPokemonObject }: pokemonTileImageProps) {
 
   return (
     <div className="imageContainer">
+      <img className="pokemonImage" src={pokemonImgSrc} />
       <div className="pokemonImageButtonContainer">
         <button
           className="imageButton"
@@ -85,25 +86,6 @@ function PokemonTileImage({ individualPokemonObject }: pokemonTileImageProps) {
           }}
         >
           {isFront ? "Back view" : "Front view"}
-        </button>
-      </div>
-      <img className="pokemonImage" src={pokemonImgSrc} />
-      <div className="pokemonImageButtonContainer">
-        <button
-          className="imageButton"
-          onClick={() => {
-            playAudio(individualPokemonObject?.cries, true);
-          }}
-        >
-          Original cry
-        </button>
-        <button
-          className="imageButton"
-          onClick={() => {
-            playAudio(individualPokemonObject?.cries, false);
-          }}
-        >
-          Modern Cry
         </button>
       </div>
     </div>

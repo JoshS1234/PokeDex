@@ -2,13 +2,15 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 100%;
-  width: 80%;
-  background-color: red;
+  width: 90%;
+  background-color: salmon;
+  border-radius: 10px;
+  border: 2px solid black;
 
   .pokemonImage {
-    width: 80%;
+    width: 50%;
     height: 80%;
     background-color: white;
     border-radius: 5%;
@@ -18,7 +20,7 @@
 
   .pokemonImageButtonContainer {
     height: 100%;
-    width: 80%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,7 +29,7 @@
     .imageButton {
       background-color: silver;
       height: 20%;
-      width: 50%;
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
