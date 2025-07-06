@@ -1,4 +1,4 @@
-import PokemonTile from "../Components/PokemonTile";
+import PokemonTile from "../Components/LeftSidePokedex/PokemonTile";
 import "./MainPage.scss";
 import React, { useEffect } from "react";
 import { useState } from "react";
@@ -12,9 +12,7 @@ const MainPage = ({ pokeData }: MainPageProps) => {
   const [currentIndex, setcurrentIndex] = useState<number>(0);
 
   const incrementPokemonId = (increment: number) => {
-    console.log(currentIndex);
     setcurrentIndex((currentIndex + increment + 151) % 151);
-    console.log(currentIndex);
   };
 
   useEffect(() => {}, [currentIndex]);
