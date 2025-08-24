@@ -8,12 +8,12 @@ function NavigationButtonsContainer({ incrementPokemonId }: Props) {
   return (
     <div className="selectionArrowContainer">
       <img
-        src="src/assets/leftArrow.svg"
+        src="./assets/leftArrow.svg"
         className="selectionArrow"
         onClick={() => incrementPokemonId(-1)}
       />
       <img
-        src="src/assets/rightArrow.svg"
+        src="./assets/rightArrow.svg"
         className="selectionArrow"
         onClick={() => incrementPokemonId(1)}
       />

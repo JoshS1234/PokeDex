@@ -13,7 +13,7 @@ function PokemonTileImage({ individualPokemonObject }: pokemonTileImageProps) {
   const [isFront, setIsFront] = useState<boolean>(true);
 
   const setImage = (isShiny: boolean, isFront: boolean) => {
-    let img = "src/assets/questionMark.svg";
+    let img = "./assets/questionMark.svg";
     if (isShiny && isFront && individualPokemonObject?.sprites.front_shiny) {
       img = individualPokemonObject?.sprites.front_shiny;
     } else if (
