@@ -3,10 +3,10 @@ import "./Speakers.scss";
 
 const Speakers = () => {
   const [pallet] = useState<HTMLAudioElement>(
-    new Audio(`src/assets/music/PalletTown.mp3`)
+    new Audio(`../../assets/music/PalletTown.mp3`)
   );
   const [gymLeader] = useState<HTMLAudioElement>(
-    new Audio(`src/assets/music/GymLeader.mp3`)
+    new Audio(`../../assets/music/GymLeader.mp3`)
   );
   const [isPalletPlaying, setIsPalletPlaying] = useState(false);
   const [isGymPlaying, setIsGymPlaying] = useState(false);
