@@ -5,16 +5,150 @@
   align-items: center;
   height: 20%;
   width: 100%;
+  padding: 10px;
+  gap: 15px;
 
   .speaker {
-    background-color: black;
+    background: linear-gradient(145deg, #4a4a4a, #2a2a2a);
     color: white;
-    width: 30%;
-    height: 50%;
+    width: 35%;
+    height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     word-wrap: break-word;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    position: relative;
+    transition: all 0.15s ease;
+    z-index: 1;
+    overflow: hidden;
+
+    // 3D raised button effect
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6), 0 3px 6px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+
+    // Speaker grille pattern
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        // Top highlight
+        linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.15) 0%,
+          rgba(255, 255, 255, 0.05) 20%,
+          transparent 40%
+        ),
+        // Speaker grille pattern - circular holes
+        repeating-radial-gradient(
+            circle at center,
+            transparent 0px,
+            transparent 3px,
+            rgba(0, 0, 0, 0.4) 3px,
+            rgba(0, 0, 0, 0.4) 4px,
+            transparent 4px,
+            transparent 8px
+          );
+      background-size: 100% 100%, 12px 12px;
+      border-radius: 12px;
+      pointer-events: none;
+      opacity: 0.8;
+      z-index: 0;
+    }
+
+    // Additional grille depth effect
+    &::after {
+      content: "";
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      right: 10%;
+      bottom: 10%;
+      background: radial-gradient(
+        circle,
+        transparent 30%,
+        rgba(0, 0, 0, 0.2) 35%,
+        rgba(0, 0, 0, 0.2) 40%,
+        transparent 45%
+      );
+      border-radius: 8px;
+      pointer-events: none;
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    // Ensure text is above grille
+    > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    &:hover {
+      background: linear-gradient(145deg, #5a5a5a, #3a3a3a);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7), 0 4px 8px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    &:active {
+      background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+      transform: translateY(2px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.4),
+        inset 0 2px 4px rgba(0, 0, 0, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    // Active/playing state
+    &.playing {
+      background: linear-gradient(145deg, #2d5a2d, #1a3a1a);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6), 0 3px 6px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3), 0 0 20px rgba(45, 90, 45, 0.5);
+
+      &::before {
+        background: 
+          // Top highlight with green tint
+          linear-gradient(
+            to bottom,
+            rgba(144, 238, 144, 0.3) 0%,
+            rgba(144, 238, 144, 0.1) 20%,
+            transparent 40%
+          ),
+          // Speaker grille pattern with green tint
+          repeating-radial-gradient(
+              circle at center,
+              transparent 0px,
+              transparent 3px,
+              rgba(0, 0, 0, 0.5) 3px,
+              rgba(0, 0, 0, 0.5) 4px,
+              transparent 4px,
+              transparent 8px
+            );
+        background-size: 100% 100%, 12px 12px;
+        opacity: 0.9;
+      }
+
+      &::after {
+        opacity: 0.8;
+        background: radial-gradient(
+          circle,
+          transparent 30%,
+          rgba(0, 0, 0, 0.3) 35%,
+          rgba(0, 0, 0, 0.3) 40%,
+          transparent 45%
+        );
+      }
+    }
   }
 }

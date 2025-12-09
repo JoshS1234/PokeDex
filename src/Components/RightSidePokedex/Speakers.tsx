@@ -36,7 +36,7 @@ const Speakers = () => {
   return (
     <div className="speakerContainer">
       <button
-        className="speaker"
+        className={`speaker ${isPalletPlaying ? "playing" : ""}`}
         onClick={() => {
           togglePlayMusicFile(
             pallet,
@@ -51,7 +51,7 @@ const Speakers = () => {
         ♫ Pallet town ♫
       </button>
       <button
-        className="speaker"
+        className={`speaker ${isGymPlaying ? "playing" : ""}`}
         onClick={() => {
           togglePlayMusicFile(
             gymLeader,
