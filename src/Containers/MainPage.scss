@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: black;
+  background-color: gray;
 }
 
 .contentContainer {
@@ -17,6 +17,15 @@
   justify-content: center;
   background-color: red;
   justify-content: space-around;
+  border-radius: 5%;
+
+  // Mobile layout - stack vertically and show one side at a time
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 95%;
+    height: 95%;
+    gap: 10px;
+  }
 }
 
 .pokedexSide {
@@ -26,6 +35,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: baseline;
+
+  // Mobile: full width and hide/show based on state
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    &.hidden-mobile {
+      display: none;
+    }
+  }
 
   .pokedexSideHeader {
     height: 20%;
@@ -81,6 +101,18 @@
       &_small {
         width: 10%;
         height: 40%;
+      }
+
+      // Toggle button styling
+      &.toggleButton {
+        @media (min-width: 769px) {
+          display: none; // Hide toggle button on desktop
+        }
+
+        @media (max-width: 768px) {
+          display: flex; // Show toggle button on mobile
+          font-size: 1.2em;
+        }
       }
 
       &:hover {
