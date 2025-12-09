@@ -14,21 +14,38 @@ const Speakers = () => {
   const togglePlayMusicFile = (
     audioConst: HTMLAudioElement,
     isCurrentlyPlaying: boolean,
-    setIsCurrentlyPlaying: (boolToSet: boolean) => void
+    setIsCurrentlyPlaying: (boolToSet: boolean) => void,
+    otherAudio: HTMLAudioElement,
+    isOtherPlaying: boolean,
+    setIsOtherPlaying: (boolToSet: boolean) => void
   ) => {
     if (!isCurrentlyPlaying) {
+      // Stop the other audio if it's playing
+      if (isOtherPlaying) {
+        otherAudio.pause();
+        otherAudio.currentTime = 0; // Reset to beginning
+        setIsOtherPlaying(false);
+      }
       audioConst.play();
+      setIsCurrentlyPlaying(true);
     } else {
       audioConst.pause();
+      setIsCurrentlyPlaying(false);
     }
-    setIsCurrentlyPlaying(!isCurrentlyPlaying);
   };
   return (
     <div className="speakerContainer">
       <button
         className="speaker"
         onClick={() => {
-          togglePlayMusicFile(pallet, isPalletPlaying, setIsPalletPlaying);
+          togglePlayMusicFile(
+            pallet,
+            isPalletPlaying,
+            setIsPalletPlaying,
+            gymLeader,
+            isGymPlaying,
+            setIsGymPlaying
+          );
         }}
       >
         ♫ Pallet town ♫
@@ -36,7 +53,14 @@ const Speakers = () => {
       <button
         className="speaker"
         onClick={() => {
-          togglePlayMusicFile(gymLeader, isGymPlaying, setIsGymPlaying);
+          togglePlayMusicFile(
+            gymLeader,
+            isGymPlaying,
+            setIsGymPlaying,
+            pallet,
+            isPalletPlaying,
+            setIsPalletPlaying
+          );
         }}
       >
         ♫ Gym battle ♫
